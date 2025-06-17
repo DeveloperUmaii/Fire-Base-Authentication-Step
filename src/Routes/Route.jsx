@@ -6,7 +6,7 @@ import Error from '../Components/Error';
 import Register from '../Pages/Register';
 
 
-const rooooooottt = createBrowserRouter([
+const route = createBrowserRouter([
   {
     path: '/',
     element: <LayOut />,
@@ -28,4 +28,4 @@ const rooooooottt = createBrowserRouter([
   },
 ])
 
-export default rooooooottt;
+export default route;
