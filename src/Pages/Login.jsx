@@ -1,11 +1,14 @@
-import React from 'react';
+import { useContext } from "react";
+import { AuthContext } from "../AutheProvidor/AuthProvider";
 
 const Login = () => {
+  const {logInUser} = useContext(AuthContext);
   const handlelogIn = e => {
       e.preventDefault()
       const form = e.target;
       const email =form.email.value;
       const password =form.password.value;
+      logInUser(email,password)
       console.log(email)
   }
   return (

@@ -1,8 +1,10 @@
 import { useContext } from "react";
+import { AuthContext } from "../AutheProvidor/AuthProvider";
 
 const Register = () => {
 
-
+  // const conTextHookInfo = useContext(AuthContext);
+  const { registrationUser } = useContext(AuthContext);
 
   const handleRegistration = (e) => {
     e.preventDefault();
@@ -11,9 +13,12 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    
+
+    registrationUser(email,password);
     console.log(name, photo, email, password);
-    form.reset();
+    // console.log();
+    
+    // form.reset();
   };
 
   return (
