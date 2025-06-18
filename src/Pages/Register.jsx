@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../AutheProvidor/AuthProvider";
 
 const Register = () => {
 
   // const conTextHookInfo = useContext(AuthContext);
-  const { registrationUser } = useContext(AuthContext);
+  const { registrationUser, user, setUser } = useContext(AuthContext);
+  // const [error, setError] = useState(""); //Password And confirm Password Matching Error!
 
   const handleRegistration = (e) => {
     e.preventDefault();
@@ -13,9 +14,22 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+    // const confirmPassword = form.confirmPassword.value;
+    
+    // Password and conform password er kaj
+    // if (password !== confirmPassword) {       
+    //   setError("Password didn't match with Confirm Password")
+    //       return
+    // }
 
-    registrationUser(email,password);
+
+    registrationUser(email,password)
+              .then(result =>{ 
+                setUser(result.user)})
+                
+              .catch(result => console.log(error.message))
     console.log(name, photo, email, password);
+    
     // console.log();
     
     // form.reset();
@@ -84,6 +98,21 @@ const Register = () => {
                 required
               />
             </div>
+
+
+{/* Confirm Password */}
+            {/* <div className="form-control">
+              <label className="label">
+                <span className="label-text">confirm Password</span>
+              </label>
+              <input
+                name="confirmPassword"
+                type="password"
+                placeholder="confirmPassword"
+                className="input input-bordered"
+                required
+              />
+            </div> */}
 
             <div className="form-control mt-6">
               <button type="submit" className="btn btn-neutral">Register</button>
