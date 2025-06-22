@@ -4,6 +4,8 @@ import Home from '../Pages/Home';
 import Login from '../Pages/Login';
 import Error from '../Components/Error';
 import Register from '../Pages/Register';
+import PrivateRoute from '../Private/PrivateRoute';
+import BangBang from '../Components/BangBang';
 
 
 const route = createBrowserRouter([
@@ -24,6 +26,17 @@ const route = createBrowserRouter([
         path: '/register',
         element: <Register />,
       },
+      {
+        path: '/Bangbang',
+        element: <PrivateRoute>
+                    <BangBang />
+                </PrivateRoute>,
+      },
+      //   path: '/Bangbang',
+      //   element: <PrivateRoute>
+      //               <BangBang />
+      //           </PrivateRoute>,
+      // },
     ],
   },
 ])
